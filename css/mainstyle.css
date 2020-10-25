@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
+html, body {
+    margin: 0;
+    height: 100%;
+    font-size: 11px;
+
+    background-color: black;
+    color: white;
+    font-family: 'Nosifer', cursive;
+    text-align: center;
+}
+
+h1 {
+    position: sticky;
+    top: 0;
+
+    background-color: black;
+    color: red;
+    margin: 0;
+    padding: 1em;
+    font-size: 3em;
+}
+
+#launchpad {
+    display: grid;
+    height: calc(75% - 3em);
+    grid-template-columns: 1fr 1fr 1fr;
+    background-image: url("../assets/images/tree-407256_1920.jpg");
+    background-attachment: fixed;
+    background-position: center bottom;
+    user-select: none;
+    justify-items: center;
+}
+
+#launchpad div {
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1em;
+    width: 80%;
+}
+
+.notPlaying {
+    background-color: rgba(204, 204, 204, 0.335);
+}
+
+.playing {
+    background-color: rgba(17, 15, 15, 0.767);
+    animation: .8s shake infinite alternate;
+}
+
+strong {
+    color: red;
+    font-size: 2em;
+}
+
+@keyframes shake {
+    0% { transform: skewX(-15deg); }
+    5% { transform: skewX(15deg); }
+    10% { transform: skewX(-15deg); }
+    15% { transform: skewX(15deg); }
+    20% { transform: skewX(0deg); }
+    100% { transform: skewX(0deg); }  
+  }
