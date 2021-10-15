@@ -6,9 +6,9 @@ Wanneer de gebruiker nogmaals klikt, wordt het geluid gestopt.
 ## Stappenplan
 ### Aanmaken van de objecten
 Er zijn reeds variabelen voorzien voor de geluiden:
-`var baseSound, loremIpsumSound, horrorKidsSound, bewareSound, cthulhuSound, choirSound;`
+`let baseSound, loremIpsumSound, horrorKidsSound, bewareSound, cthulhuSound, choirSound;`
 
-Voorzie in de `Initialize` methode voor elke variabele een **object** met **keys** en **values**.
+Voorzie in de `initialize` methode voor elke variabele een **object** met **keys** en **values**.
 Ons eigen `sound object` houdt twee zaken bij:
 |key|value|
 |---|-----|
@@ -32,7 +32,7 @@ De te koppelen geluiden vind je hier:
 Op de HTML-pagina vind je reeds een aantal div-elementen. Deze dienen als knop (want we voegen er later een eventListener aan toe).
 
 Ook in de JS-code vind je reeds een aantal variabelen die bedoel zijn voor deze elementen:
-`var topLeftPad, topMiddlePad, topRightPad, bottomLeftPad, bottomMiddlePad, bottomRightPad;`
+`let divTopLeftPad, divTopMiddlePad, divTopRightPad, divBottomLeftPad, divBottomMiddlePad, divBottomRightPad;`
 
 Schrijf passende querySelectors om deze elementen op te vragen.
 
@@ -43,7 +43,7 @@ De CSS-code die dit verwezenlijkt is reeds voorzien. Je moet ze **enkel** nog ge
 
 Wanneer een geluid niet afspeelt dan heeft het div-element een class attribuut met `notPlaying`, speelt het wél af dan heeft het een css-klasse met de naam `playing`.
 
-Schrijf een querySelector die **alle** kaartjes opvraagt in het DOM. Geef ze vervolgens **door** aan de functie `InitiateNotPlayingStatus` waarin je alle kaartjes hun class attribuut instelt op `notPlaying`.
+Schrijf een querySelector die **alle** kaartjes opvraagt in het DOM. Geef ze vervolgens **door** aan de functie `initiateNotPlayingStatus` waarin je alle kaartjes hun class attribuut instelt op `notPlaying`.
 
 
 ### Anonieme functies en arrow functions
@@ -52,7 +52,7 @@ De code voor het starten en stoppen van de audio behoort niet tot de leerstof va
 Kopieer deze functie:
 
 ```
-function ToggleSound(sound, element) {
+function toggleSound(sound, element) {
 
     //if we're already playing we want to stop the audio ...
     if(sound.isPlaying) {
@@ -66,7 +66,7 @@ function ToggleSound(sound, element) {
         sound.isPlaying = false;
 
         //reset style
-        element.className = "notPlaying";        
+        element.className = "not-playing";        
     }
 
     //else it is not playing, so start playing
@@ -81,12 +81,11 @@ function ToggleSound(sound, element) {
 }
 ```
 
-Vervolgens schrijf je in de `Initialise` eventhandlers die het geluid zullen afspelen of stoppen bij een **click**.
+Vervolgens schrijf je in de `initialise` eventhandlers die het geluid zullen afspelen of stoppen bij een **click**.
 
 Doe dit voor de eerste 3 geluiden met een **anonieme functie** en voor de laatste drie met een **arrow function**.
 
-De `ToggleSound` function verwacht 2 parameters: het af te spelen geluid (dit zijn je eigen gemaakte objecten - niét de `new Audio`'s) en een referentie naar het oproepende element. **Dit is het element waarop geklikt werd zelf!**
+De `toggleSound` function verwacht 2 parameters: het af te spelen geluid (dit zijn je eigen gemaakte objecten - niét de `new Audio`'s) en een referentie naar het oproepende element. **Dit is het element waarop geklikt werd zelf!**
 
 ## Extra
 Zorg ervoor dat de geluidjes ook afgespeeld kunnen worden met de numpads 1 - 6.
-
