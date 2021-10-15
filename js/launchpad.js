@@ -1,14 +1,14 @@
 "use strict"
 
-window.addEventListener("load", Initialise);
+window.addEventListener("load", initialize);
 
 //sounds
-var baseSound, loremIpsumSound, horrorKidsSound, bewareSound, cthulhuSound, choirSound;
+let baseSound, loremIpsumSound, horrorKidsSound, bewareSound, cthulhuSound, choirSound;
 
 //elements
-var topLeftPad, topMiddlePad, topRightPad, bottomLeftPad, bottomMiddlePad, bottomRightPad;
+let divTopLeftPad, divTopMiddlePad, divTopRightPad, divBottomLeftPad, divBottomMiddlePad, divBottomRightPad;
 
-function Initialise() { 
+function initialize() { 
 
     //create objects for each sound here
 
@@ -21,7 +21,7 @@ function Initialise() {
 
 }
 
-function ToggleSound(sound, element) {
+function toggleSound(sound, element) {
 
     //if we're already playing we want to stop the audio ...
     if(sound.isPlaying) {
@@ -35,7 +35,7 @@ function ToggleSound(sound, element) {
         sound.isPlaying = false;
 
         //reset style
-        element.className = "notPlaying";        
+        element.className = "not-playing";        
     }
 
     //else it is not playing, so start playing
